@@ -3,72 +3,79 @@ import "./App.css";
 import Person from "./Person/Person";
 
 class App extends Component {
-  state = {
-    persons: [
-      { name: "Max", age: 28 },
-      { name: "Manu", age: 29 },
-      { name: "Irene", age: 26 }
-    ],
-    otherState: "some other stuff"
-  };
-
-  switchNameHandler = newName => {
-    this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: "Manu", age: 29 },
-        { name: "Irene", age: 89 }
-      ]
-    });
-  };
-
-  nameChangedHandler = event => {
-    this.setState({
-      persons: [
-        { name: "Max", age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: "Irene", age: 89 }
-      ]
-    });
-  };
-  render() {
-    const style = {
-      backgroundColor: "white",
-      font: "inherit",
-      border: "1px solid blue",
-      padding: "8px",
-      cursor: "pointer"
+    state = {
+        persons: [
+            { name: "Max", age: 28 },
+            { name: "Manu", age: 29 },
+            { name: "Irene", age: 26 }
+        ],
+        otherState: "some other stuff",
+        showPersons: false
     };
-    return (
-      <div className="App">
-        <h1>Hi, I am a react App</h1>
-        <button style={style} onClick={() => this.switchNameHandler("Sucka")}>
-          {" "}
-          Switch Name{" "}
-        </button>
-        <Person name="paul" age="45">
-          My hobbies: Boobies
-        </Person>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          changed={this.nameChangedHandler}
-        />
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-          click={this.switchNameHandler.bind(this, " Comeone")}
-        >
-          {" "}
-          Shit I love: Doogy{" "}
-        </Person>
-      </div>
+
+    switchNameHandler = newName => {
+        this.setState({
+            persons: [
+                { name: newName, age: 28 },
+                { name: "Manu", age: 29 },
+                { name: "Irene", age: 89 }
+            ]
+        });
+    };
+
+    nameChangedHandler = event => {
+        this.setState({
+            persons: [
+                { name: "Max", age: 28 },
+                { name: event.target.value, age: 29 },
+                { name: "Irene", age: 89 }
+            ]
+        });
+    };
+    togglePersonsHandler = () => {
+        const doesShow = this.state.showPersons;
+        this.setState({ showPersons: !doesShow })
+    }
+    render() {
+        const style = {
+            backgroundColor: "white",
+            font: "inherit",
+            border: "1px solid blue",
+            padding: "8px",
+            cursor: "pointer"
+        };
+        return ( < div className = "App" >
+                <
+                h1 > Hi, I am a react App < /h1>  <
+                button style = { style }
+                onClick = { this.togglePersonsHandler } > { " " }
+                Switch Name { " " } <
+                /button>   {
+                this.state.showPersons ?
+                <
+                div >
+                <
+                Person name = "paul"
+                age = "45" >
+                My hobbies : Boobies <
+                /Person> <
+                Person name = { this.state.persons[0].name }
+                age = { this.state.persons[0].age }
+                /> <
+                Person name = { this.state.persons[1].name }
+                age = { this.state.persons[1].age }
+                changed = { this.nameChangedHandler }
+                /> <
+                Person name = { this.state.persons[2].name }
+                age = { this.state.persons[2].age }
+                click = { this.switchNameHandler.bind(this, " Comeone") } > { " " }
+                Shit I love: Doogy { " " } <
+                /Person> < /
+                div >: null
+            } <
+            /div>
     );
-  }
+}
 }
 
 export default App;
