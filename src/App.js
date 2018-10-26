@@ -44,20 +44,15 @@ class App extends Component {
             padding: "8px",
             cursor: "pointer"
         };
-        return ( < div className = "App" >
-                <
-                h1 > Hi, I am a react App < /h1>  <
-                button style = { style }
-                onClick = { this.togglePersonsHandler } > { " " }
-                Switch Name { " " } <
-                /button>   {
-                this.state.showPersons ?
-                <
+
+        let persons = null;
+        if (this.state.showPersons) {
+            persons = ( <
                 div >
                 <
                 Person name = "paul"
                 age = "45" >
-                My hobbies : Boobies <
+                My hobbies: Boobies <
                 /Person> <
                 Person name = { this.state.persons[0].name }
                 age = { this.state.persons[0].age }
@@ -71,11 +66,19 @@ class App extends Component {
                 click = { this.switchNameHandler.bind(this, " Comeone") } > { " " }
                 Shit I love: Doogy { " " } <
                 /Person> < /
-                div >: null
-            } <
-            /div>
-    );
-}
+                div >
+            );
+        }
+        return ( < div className = "App" >
+            <
+            h1 > Hi, I am a react App < /h1>  <
+            button style = { style }
+            onClick = { this.togglePersonsHandler } > { " " }
+            Switch Name { " " } <
+            /button>    { persons } < /
+            div >
+        );
+    }
 }
 
 export default App;
