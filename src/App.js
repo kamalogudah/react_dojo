@@ -48,24 +48,16 @@ class App extends Component {
         let persons = null;
         if (this.state.showPersons) {
             persons = ( <
-                div >
-                <
-                Person name = "paul"
+                div > {
+                    this.state.persons.map(person => {
+                        return <Person
+                        name = { person.name }
+                        age = { person.age }
+                        />
+                    })
+                } < Person name = "paul"
                 age = "45" >
-                My hobbies: Boobies <
-                /Person> <
-                Person name = { this.state.persons[0].name }
-                age = { this.state.persons[0].age }
-                /> <
-                Person name = { this.state.persons[1].name }
-                age = { this.state.persons[1].age }
-                changed = { this.nameChangedHandler }
-                /> <
-                Person name = { this.state.persons[2].name }
-                age = { this.state.persons[2].age }
-                click = { this.switchNameHandler.bind(this, " Comeone") } > { " " }
-                Shit I love: Doogy { " " } <
-                /Person> < /
+                My hobbies: Boobies < /Person>   < /
                 div >
             );
         }
