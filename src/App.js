@@ -46,7 +46,8 @@ class App extends Component {
     }
     render() {
         const style = {
-            backgroundColor: "white",
+            backgroundColor: "green",
+            color: 'white',
             font: "inherit",
             border: "1px solid blue",
             padding: "8px",
@@ -70,18 +71,17 @@ class App extends Component {
                         }
                         />
                     })
-                } < Person name = "paul"
-                age = "45" >
-                My hobbies: Boobies < /Person>   < /
+                } < /
                 div >
             );
+            style.backgroundColor = 'red';
         }
         return ( < div className = "App" >
             <
             h1 > Hi, I am a react App < /h1>  <
             button style = { style }
             onClick = { this.togglePersonsHandler } > { " " }
-            Switch Name { " " } <
+            Toggle Person { " " } <
             /button>    { persons } < /
             div >
         );
