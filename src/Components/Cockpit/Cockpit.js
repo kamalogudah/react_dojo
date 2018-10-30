@@ -21,6 +21,7 @@ const cockpit = props => {
       <button className={btnClass} onClick={props.clicked}>
         Toggle Person
       </button>
+      <p>{props.appFooter}</p>
     </div>
   );
 };

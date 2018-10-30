@@ -5,7 +5,7 @@ import App from "./Containers/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <App title="React is not that Bad" />,
+  <App title="React is not that Bad" footer="We done Bitches" />,
   document.getElementById("root")
 );
 
