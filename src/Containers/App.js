@@ -34,6 +34,30 @@ class App extends Component {
   //     showPersons: false
   //   };
 
+  componentWillReceiveProps(nextProps) {
+    console.log("[UPDATE App.js] Inside ComponentWillReceiveProps", nextProps);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(
+      "[UPDATE App.js] Inside shouldComponentUpdate",
+      nextProps,
+      nextState
+    );
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log(
+      "[UPDATE App.js] Inside ComponentWillUpdate",
+      nextProps,
+      nextState
+    );
+  }
+
+  componentDidUpdate() {
+    console.log("[UPDATE App.js] Inside ComponentDidUpdate");
+  }
+
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
