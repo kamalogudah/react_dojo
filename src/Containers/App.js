@@ -22,10 +22,10 @@ class App extends PureComponent {
     };
     console.log("[App.js] Inside Constructor", props);
   }
-
-  componentWillMount() {
-    console.log("[App.js] Inside ComponentWillMount");
-  }
+  // deprecated
+  //   componentWillMount() {
+  //     console.log("[App.js] Inside ComponentWillMount");
+  //   }
 
   componentDidMount() {
     console.log("[App.js] Inside ComponentDidMount");
@@ -39,10 +39,10 @@ class App extends PureComponent {
   //     otherState: "some other stuff",
   //     showPersons: false
   //   };
-
-  componentWillReceiveProps(nextProps) {
-    console.log("[UPDATE App.js] Inside ComponentWillReceiveProps", nextProps);
-  }
+  // deprecated
+  //   componentWillReceiveProps(nextProps) {
+  //     console.log("[UPDATE App.js] Inside ComponentWillReceiveProps", nextProps);
+  //   }
   //   shouldComponentUpdate(nextProps, nextState) {
   //     console.log(
   //       "[UPDATE App.js] Inside shouldComponentUpdate",
@@ -54,13 +54,27 @@ class App extends PureComponent {
   //       nextState.showPersons !== this.state.showPersons
   //     );
   //   }
+  // deprecated
+  //   componentWillUpdate(nextProps, nextState) {
+  //     console.log(
+  //       "[UPDATE App.js] Inside ComponentWillUpdate",
+  //       nextProps,
+  //       nextState
+  //     );
+  //   }
 
-  componentWillUpdate(nextProps, nextState) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     console.log(
-      "[UPDATE App.js] Inside ComponentWillUpdate",
+      "[UPDATE App.js] Inside getDerivedStateFromProps",
       nextProps,
-      nextState
+      prevState
     );
+
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log("[UPDATE App.js] Inside getSnapshotBeforeUpdate");
   }
 
   componentDidUpdate() {
